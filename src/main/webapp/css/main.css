@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+.tabui-wrap {
+	width: 400px;
+	margin: 0px auto;
+}
+
+header {
+	height: 40px;
+	background-color: #2db400;
+	font-size: 20px;
+	color: white;
+}
+
+#ig {
+	image-rendering: inherit;
+	position: absolute;
+	margin-left: 20px;
+	margin-top: 4px;
+}
+
+header #ft1 {
+	position: relative;
+	left: 70px;
+	top: 7px;
+}
+
+header #ft2 {
+	position: relative;
+	left: 280px;
+	top: 7px;
+}
+
+/* 슬라이드 */
+.tabui-promotion {
+	position: absolute;
+	background-color: #2db400;
+	overflow: hidden;
+	width: 400px;
+	height: 280px;
+}
+
+.tabui-promotion ul {
+	position: absolute;
+	width: 1600px;
+	padding-right: 10px;
+	padding-left: 0px;
+	margin-top: 0px;
+	animation: move 12s infinite ease-out;
+}
+
+.tabui-promotion li {
+	list-style-type: none;
+	float: left;
+	padding: 0%;
+	margin-top: 0px;
+	padding-top: 0px;
+	width: 400px;
+	height: 280px;
+}
+
+.tabui-promotion li:nth-of-type(1) {
+	background-image: url(../slideimg/1_ma_2.png);
+}
+
+.tabui-promotion li:nth-of-type(2) {
+	background-image: url(../slideimg/2_ma_4.png);
+}
+
+.tabui-promotion li:nth-of-type(3) {
+	background-image: url(../slideimg/3_ma_10.png);
+}
+
+.tabui-promotion li:nth-of-type(4) {
+	background-image: url(../slideimg/10_ma_28.png);
+}
+
+/* @keyframes move {
+  0% {left: 0;}
+  5% { left: -400px;}  
+  33% { left: -400px;}
+  38% {left: -800px;}
+  66% {left: -800px;}
+  71% {left: -1200px;}
+  99.9% {left: -1200px;}
+  99.99% {left: 0px;}
+  100% {left: 0px;}
+} */
+.tabui-category {
+	background-color: white;
+	text-align: center;
+	width: 400px;
+	padding-top: 300px;
+	padding-left: 6px;
+}
+
+.tabui-category div {
+	background-color: white;
+	display: inline-block;
+}
+
+.tabui-category div input {
+	margin: 0px 14px 0px 0px;
+	padding-bottom: 5px;
+}
+
+hr {
+	background-color: #2db400;
+}
+
+.tabui-count {
+	text-align: center;
+	background-color: white;
+	margin-top: 0px;
+}
+
+.tabui-content {
+	height: 300px;
+	background-color: rgb(225, 225, 219);
+}
+
+.tabui-more {
+	background-color: rgb(225, 225, 219);
+	margin-top: 0px auto;
+}
+
+.tabui-more input {
+	width: 400px;
+	margin-top: 15px;
+	margin-bottom: 8px;
+}
+
+.tabui-top {
+	text-align: center;
+	height: 38px;
+	background-color: rgb(225, 225, 219);
+}

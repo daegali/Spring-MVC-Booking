@@ -1,45 +1,145 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>예약 서비스</title>
-   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-<div class="tabui-wrap">
-      <header>
-        <span id="ig"><img src="${pageContext.request.contextPath}/slideimg/favicon.ico" /></span>
-        <span id="ft1">예약</span>
-        <span id="ft2">로그인</span>
-      </header>
-      <section class="tabui-promotion">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </section>
-      <section class="tabui-category">
-        <div>
-          <input type="button" value="전체리스트" />
-          <input type="button" value="뮤지컬" />
-          <input type="button" value="콘서트" />
-          <input type="button" value="클래식" />
-          <input type="button" value="연극" />
-        </div>
-      </section>
-      <hr />
-      <div class="tabui-count">
-        <p>바로 예매 가능한 행사가 8개 있습니다.</p>
-      </div>
-      <div class="tabui-content">content</div>
-      <div class="tabui-more">
-        <input type="button" value="더보기" />
-      </div>
-      <div class="tabui-top">&#8607; 위로</div>
-    </div>
+	<div id="container">
+		<div class="header">
+			<header class="header_tit">
+				<h1 class="logo">
+					<a href="/reservationweb/mainpage" class="lnk_logo" title="네이버">
+						<span class="spr_bi ico_n_logo">네이버</span>
+					</a> <a href="/reservationweb/mainpage" class="lnk_logo" title="예약">
+						<span class="spr_bi ico_bk_logo">예약</span>
+					</a>
+				</h1>
+				<c:choose>
+					<c:when test="${empty loginInfo}">
+						<a href="/reservationweb/bookinglogin" class="btn_my"> <span
+							class="viewReservation" title="예약확인">예약확인</span>
+						</a>
+					</c:when>
+					<c:otherwise>
+						<a href="/reservationweb/myreservation" class="btn_my"> <span
+							class="viewReservation" title="예약확인" style="font-size: 18px">${loginInfo.email}</span>
+						</a>
+					</c:otherwise>
+				</c:choose>
+			</header>
+		</div>
+		<hr>
+		<div class="event">
+			<div class="section_visual">
+				<div class="group_visual">
+					<div class="container_visual">
+						<div class="prev_e" style="display: none;">
+							<div class="prev_inn">
+								<a href="#" class="btn_pre_e" title="이전"> <i
+									class="spr_book_event spr_event_pre">이전</i>
+								</a>
+							</div>
+						</div>
+						<div class="nxt_e" style="display: none;">
+							<div class="nxt_inn">
+								<a href="#" class="btn_nxt_e" title="다음"> <i
+									class="spr_book_event spr_event_nxt">다음</i>
+								</a>
+							</div>
+						</div>
+						<div>
+							<div class="container_visual">
+								<!-- 슬라이딩기능: 이미지 (type = 'th')를 순차적으로 노출 -->
+								<ul id="slider" class="visual_img">
+
+								</ul>
+							</div>
+							<span class="nxt_fix" style="display: none;"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section_event_tab">
+				<ul class="event_tab_lst tab_lst_min">
+					<li class="item" data-category="0"><a class="anchor active">
+							<span>전체리스트</span>
+					</a></li>
+					<li class="item" data-category="1"><a class="anchor"> <span>전시</span>
+					</a></li>
+					<li class="item" data-category="2"><a class="anchor"> <span>뮤지컬</span>
+					</a></li>
+					<li class="item" data-category="3"><a class="anchor"> <span>콘서트</span>
+					</a></li>
+					<li class="item" data-category="4"><a class="anchor"> <span>클래식</span>
+					</a></li>
+					<li class="item" data-category="5"><a class="anchor"> <span>연극</span>
+					</a></li>
+				</ul>
+			</div>
+			<hr />
+			<div class="section_event_lst">
+				<p class="event_lst_txt">
+					바로 예매 가능한 행사가 <span id="categoryItemSum" class="pink">0</span> 있습니다
+				</p>
+				<div class="wrap_event_box">
+					<!-- [D] lst_event_box 가 2컬럼으로 좌우로 나뉨, 더보기를 클릭할때마다 좌우 ul에 li가 추가됨 -->
+					<ul class="lst_event_box">
+					</ul>
+					<ul class="lst_event_box">
+					</ul>
+					<!-- 더보기 -->
+					<div class="more">
+						<button class="btn">
+							<span>더보기</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="gototop">
+			<a class="lnk_top"> <span class="lnk_top_text">TOP</span>
+			</a>
+		</div>
+		<div class="footer">
+			<p class="dsc_footer">네이버(주)는 통신판매의 당사자가 아니며, 상품의정보, 거래조건, 이용 및
+				환불 등과 관련한 의무와 책임은 각 회원에게 있습니다.</p>
+			<span class="copyright">© NAVER Corp.</span>
+		</div>
+	</footer>
+	<script type="rv-template" id="promotionItem">
+    <li class="item" style="background-image: url(/reservationweb/resources/{productImageUrl} );">
+        <a href="#"> <span class="img_btm_border"></span> <span class="img_right_border"></span> <span class="img_bg_gra"></span>
+            <div class="event_txt">
+                <h4 class="event_txt_tit">{description}</h4>
+                <p class="event_txt_adr">{placeName}</p>
+                <p class="event_txt_dsc"></p>
+            </div>
+        </a>
+    </li>
+    </script>
+	<script type="rv-template" id="itemList">
+        <li class="item">
+            <a href="detail?id={id}" class="item_book">
+                <div class="item_preview">
+                    <img alt={description} class="img_thumb" src="resources/img/{imgUrl}">
+                    <span class="img_border"></span>
+                </div>
+                <div class="event_txt">
+                    <h4 class="event_txt_tit"> <span>{description}</span> <small class="sm">{placeName}</small> </h4>
+                    <p class="event_txt_dsc">{content}</p>
+                </div>
+            </a>
+        </li>
+    </script>
+    <script src="${pageContext.request.contextPath}/js/main.js" type="text/javascript"
+	charset="UTF-8"></script>
 </body>
 </html>

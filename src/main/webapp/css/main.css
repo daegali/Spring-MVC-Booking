@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .tabui-wrap {
-	width: 400px;
+	width: 500px;
 	margin: 0px auto;
 }
 
@@ -36,7 +36,7 @@ header #ft2 {
 	position: absolute;
 	background-color: #2db400;
 	overflow: hidden;
-	width: 400px;
+	width: 500px;
 	height: 280px;
 }
 
